@@ -7,6 +7,7 @@ using UIKit;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Distribute;
 
 namespace PeterApp.iOS
 {
@@ -25,10 +26,11 @@ namespace PeterApp.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            AppCenter.Start("184f507c-49dc-4561-9865-51e96576b3a8", typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("184f507c-49dc-4561-9865-51e96576b3a8", typeof(Analytics), typeof(Crashes), typeof(Distribute));
 
             Xamarin.Calabash.Start();
             global::Xamarin.Forms.Forms.Init();
+            Distribute.DontCheckForUpdatesInDebug();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

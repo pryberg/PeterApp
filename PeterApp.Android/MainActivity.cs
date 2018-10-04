@@ -9,6 +9,7 @@ using Android.OS;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Distribute;
 
 namespace PeterApp.Droid
 {
@@ -17,7 +18,7 @@ namespace PeterApp.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            AppCenter.Start("03153592-fc8b-4c81-a779-558eadae0091", typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("03153592-fc8b-4c81-a779-558eadae0091", typeof(Analytics), typeof(Crashes), typeof(Distribute));
 
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
