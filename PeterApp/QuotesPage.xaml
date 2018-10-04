@@ -9,5 +9,6 @@
         <Label x:Name="lfont" AutomationId="textLabel" Text="Test for Font"></Label>
         <Slider AutomationId="fontSizeSlider" Maximum="50" Minimum="16" ValueChanged="Handle_ValueChanged" x:Name="slider"></Slider>
         <Label FontSize="{Binding Value}" AutomationId="fontSizeLabel" x:Name="ltext">Text for contrainl</Label>
+        <Button AutomationId="myCrashes" Text="Crashes now" Clicked="Handle_Clicked_1"></Button>
     </StackLayout>
 </ContentPage>

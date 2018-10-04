@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using Microsoft.AppCenter.Crashes;
 
 namespace PeterApp
 {
@@ -17,6 +18,15 @@ namespace PeterApp
                 "Look deep into nature, and then you will understand everything better."};
             ltext.Text = texts[1];
             lfont.Text = "Font Size: 16";
+
+            try
+            {
+                int divByZero = 42 / int.Parse("0");
+            }
+            catch (DivideByZeroException ex)
+            {
+                Crashes.TrackError(ex);
+            }
         }
 
         void Handle_Clicked(object sender, System.EventArgs e)
@@ -28,6 +38,21 @@ namespace PeterApp
         {
             lfont.Text = String.Format("Font Size: {0:F0}", e.NewValue); 
 
+        }
+
+        void Handle_Clicked_1(object sender, System.EventArgs e)
+        {
+
+            ltext.Text = String.Format("Right now this is true crashes.");
+
+            try
+            {
+                int divByZero = 42 / int.Parse("0");
+            }
+            catch (DivideByZeroException ex)
+            {
+                Crashes.TrackError(ex);
+            }
         }
     }
 }
